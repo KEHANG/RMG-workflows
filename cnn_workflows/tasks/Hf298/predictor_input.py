@@ -8,7 +8,7 @@
 # added padding, RMG-Py sha=fdfab62242ebef
 # in-house train_model allows batch training, sha=b9c862d7e924
 
-predictor_model(prediction_task="S298(cal/mol/K)",
+predictor_model(prediction_task="Hf298(cal/mol/K)",
 				embedding_size=512, depth=3, scale_output=0.05, 
 				padding=True, padding_final_size=25,
 				add_extra_atom_attribute=True, add_extra_bond_attribute=True,
