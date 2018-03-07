@@ -28,6 +28,15 @@ if [ $RMGDB_BRANCH != "master" ]; then
 fi
 rmgdb_sha=$(git rev-parse HEAD)
 
+# dump RMG-Py and RMG-database metadata
+# for recording
+cd ${THIS_WF_DIR}
+branch_meta="{rmgpy_branch:${RMGPY_BRANCH},"
+branch_meta="${branch_meta} rmgpy_sha:${rmgpy_sha},"
+branch_meta="${branch_meta} rmgdb_branch:${RMGDB_BRANCH},"
+branch_meta="${branch_meta} rmgdb_sha:${rmgdb_sha}}"
+echo ${branch_meta} >> branch_meta.json
+
 # figure out OS, prepare conda environment
 echo ""
 cd $THIS_WF_DIR/RMG-Py
@@ -57,7 +66,6 @@ echo ""
 source activate ${cnn_wf_env}
 make
 source deactivate
-
 
 
 
