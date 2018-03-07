@@ -2,7 +2,7 @@
 # parse arguments
 TASK=$1
 THIS_WF_DIR=$2
-TASK_DIR=${THIS_WF_DIR}/$TASK
+TASK_DIR=${THIS_WF_DIR}/tasks/$TASK
 
 # run task
 cd ${TASK_DIR}
