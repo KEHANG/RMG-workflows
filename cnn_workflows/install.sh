@@ -39,13 +39,15 @@ else
 	exit 0
 fi
 echo "Current OS: "$CURRENT_OS
-export cnn_wf_env='cnn_wf_env_'${rmgpy_sha:0:8}'_'${rmgdb_sha:0:8}
 
-echo ""
-cd $THIS_WF_DIR/RMG-Py
-sed -i -e "s/rmg_env/${cnn_wf_env}/g" environment_${CURRENT_OS}.yml
-conda env create -f environment_${CURRENT_OS}.yml
-git checkout environment_${CURRENT_OS}.yml
+export cnn_wf_env='cnn_wf_env_'${rmgpy_sha:0:8}'_'${rmgdb_sha:0:8}
+env_existed=(`conda info --envs | grep ${cnn_wf_env} | wc -l`)
+if [ $env_existed == "0" ]; then
+	cd $THIS_WF_DIR/RMG-Py
+	sed -i -e "s/rmg_env/${cnn_wf_env}/g" environment_${CURRENT_OS}.yml
+	conda env create -f environment_${CURRENT_OS}.yml
+	git checkout environment_${CURRENT_OS}.yml
+fi
 
 # compile RMG-Py
 echo ""
