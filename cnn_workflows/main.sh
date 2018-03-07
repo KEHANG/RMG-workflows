@@ -19,9 +19,9 @@ echo "RMG-database Branch: "$RMGDB_BRANCH
 # copy task specs and run tasks
 cd $BASE_DIR
 cp -r tasks $THIS_WF_DIR
-. run_task.sh Cp $THIS_WF_DIR
-. run_task.sh Hf298 $THIS_WF_DIR
-. run_task.sh S298 $THIS_WF_DIR
+. $BASE_DIR/run_task.sh Cp $THIS_WF_DIR
+. $BASE_DIR/run_task.sh Hf298 $THIS_WF_DIR
+. $BASE_DIR/run_task.sh S298 $THIS_WF_DIR
 
 ## TODO
 ## after all the jobs done
