@@ -1,0 +1,37 @@
+# specify all the datasets to 
+# train on
+
+## cho cyclics data
+rmg.sdata134k.sdata134k_cho_cyclics_table_train: 0.0
+rmg.rmg_internal.rmg_rings_table_train: 0.0
+rmg.rmg_internal.kh_bicyclics_table_train: 0.0
+rmg.rmg_internal.kh_tricyclics_table_train: 0.0
+rmg.rmg_internal.zb_bicyclics_table_train: 0.0
+rmg.rmg_internal.rmg_cho_cyclic_table_train: 0.0
+
+## N cyclics data
+rmg.sdata134k.N_cyclics_table_train: 0.0
+rmg.rmg_internal.rmg_N_cyclic_table_train: 0.0
+
+## S cyclics data
+rmg.rmg_internal.rmg_S_cyclic_table_train: 0.0
+
+## cho linear data
+rmg.sdata134k.sdata134k_cho_linear_table_train: 0.0
+rmg.rmg_internal.rmg_cho_linear_table_train: 0.0
+
+## N linear data
+rmg.sdata134k.sdata134k_N_linear_table_train: 0.0
+rmg.rmg_internal.rmg_N_linear_table_train: 0.0
+
+## S linear data
+rmg.rmg_internal.rmg_S_linear_table_train: 0.0
+
+## cho rads data
+rmg.rmg_internal.rmg_cho_rads_table_train: 0.0
+
+## N rads data
+rmg.rmg_internal.rmg_N_rads_table_train: 0.0
+
+## S rads data
+rmg.rmg_internal.rmg_S_rads_table_train: 0.0

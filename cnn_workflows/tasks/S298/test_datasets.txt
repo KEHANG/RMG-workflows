@@ -1,0 +1,34 @@
+## cho cyclics data
+rmg.sdata134k.sdata134k_cho_cyclics_table_test
+rmg.rmg_internal.rmg_rings_table_test
+rmg.rmg_internal.kh_bicyclics_table_test
+rmg.rmg_internal.kh_tricyclics_table_test
+rmg.rmg_internal.zb_bicyclics_table_test
+rmg.rmg_internal.rmg_cho_cyclic_table_test
+
+## N cyclics data
+rmg.sdata134k.N_cyclics_table_test
+rmg.rmg_internal.rmg_N_cyclic_table_test
+
+## S cyclics data
+rmg.rmg_internal.rmg_S_cyclic_table_test
+
+## cho linear data
+rmg.sdata134k.sdata134k_cho_linear_table_test
+rmg.rmg_internal.rmg_cho_linear_table_test
+
+## N linear data
+rmg.sdata134k.sdata134k_N_linear_table_test
+rmg.rmg_internal.rmg_N_linear_table_test
+
+## S linear data
+rmg.rmg_internal.rmg_S_linear_table_test
+
+## cho rads data
+rmg.rmg_internal.rmg_cho_rads_table_test
+
+## N rads data
+rmg.rmg_internal.rmg_N_rads_table_test
+
+## S rads data
+rmg.rmg_internal.rmg_S_rads_table_test
