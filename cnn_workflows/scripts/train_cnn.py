@@ -90,6 +90,40 @@ def initializeLog(verbose, log_file_name):
 
 ################################################################################
 
+def dump_input_to_json_file(input_file):
+
+	input_file_str = ""
+	with open(input_file, 'r') as f_in:
+		for line in f_in:
+			line_stripped = line.strip()
+			if line_stripped.startswith('#'):
+				continue
+			input_file_str += line_stripped
+
+	# remove header and tail
+	input_file_str = input_file_str.replace("predictor_model(", "")
+	input_file_str = input_file_str.replace(")", "")
+
+	# correct quotes and booleans
+	input_file_str = input_file_str.replace("'", '"')
+	input_file_str = input_file_str.replace("True", "true")
+	input_file_str = input_file_str.replace("False", "false")
+	
+	# make keys to strings
+	arguments = [arg.strip().split('=')[0] for arg in input_file_str.split(',')]
+	arg_vals = [arg.strip() for arg in input_file_str.split(',')]
+	updated_arg_vals = [arg_val.replace(arguments[i], '"' + arguments[i] + '"').replace("=", ":") for i, arg_val in enumerate(arg_vals)]
+	
+	# concatenate argument-values
+	input_file_str = "{" + ", ".join(updated_arg_vals) + "}"
+	
+	parsed = json.loads(input_file_str)
+	with open('predictor_input.json', 'w') as f_out:
+		json.dump(parsed, f_out, indent=4, sort_keys=True)
+
+
+################################################################################
+
 if __name__ == '__main__':
 
 	# to run the script
@@ -118,6 +152,11 @@ if __name__ == '__main__':
 
 	predictor = Predictor(datasets_file=datasets_file)
 	predictor.load_input(input_file)
+
+	# this is temporary
+	# in the future the input file
+	# should be using json directly
+	dump_input_to_json_file(input_file)
 
 	lr_func = "float({0} * np.exp(- epoch / {1}))".format(lr0, lr1)
 	save_model_path = os.path.join(input_directory, 'saved_model')
