@@ -30,6 +30,8 @@ rmgdb_sha=$(git rev-parse HEAD)
 
 # figure out OS, prepare conda environment
 echo ""
+cd $THIS_WF_DIR/RMG-Py
+
 if [[ $MACHTYPE == *"apple"* ]]; then
 	export CURRENT_OS="mac"
 elif [[ $MACHTYPE == *"linux"* ]]; then
@@ -43,7 +45,6 @@ echo "Current OS: "$CURRENT_OS
 export cnn_wf_env='cnn_wf_env_'${rmgpy_sha:0:8}'_'${rmgdb_sha:0:8}
 env_existed=(`conda info --envs | grep ${cnn_wf_env} | wc -l`)
 if [ $env_existed == "0" ]; then
-	cd $THIS_WF_DIR/RMG-Py
 	sed -i -e "s/rmg_env/${cnn_wf_env}/g" environment_${CURRENT_OS}.yml
 	conda env create -f environment_${CURRENT_OS}.yml
 	git checkout environment_${CURRENT_OS}.yml
