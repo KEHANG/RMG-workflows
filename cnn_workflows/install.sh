@@ -48,6 +48,8 @@ if [ $env_existed == "0" ]; then
 	sed -i -e "s/rmg_env/${cnn_wf_env}/g" environment_${CURRENT_OS}.yml
 	conda env create -f environment_${CURRENT_OS}.yml
 	git checkout environment_${CURRENT_OS}.yml
+else
+	echo "conda env exists: ${cnn_wf_env}; Skip creating it again..."
 fi
 
 # compile RMG-Py
