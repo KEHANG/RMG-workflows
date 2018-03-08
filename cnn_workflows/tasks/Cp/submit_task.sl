@@ -7,6 +7,8 @@
 # parse arguments
 RMG_WS=${1}
 cnn_wf_env=${2}
+THIS_WF_DIR=${3}
+TASK_DIR==${4}
 
 # for training
 INPUT='predictor_input.py'
@@ -23,4 +25,5 @@ source activate ${cnn_wf_env}
 export KERAS_BACKEND=theano
 python $RMG_WS/scripts/train_cnn.py -i $INPUT -d ${DATA_FILE} -t ${TRAIN_MODE} -bs ${BATCH_SIZE}
 python $RMG_WS/scripts/evaluate_cnn.py -d ${TEST_DATA_FILE} -m ${CNN_MODEL}
+python ../../../../scripts/pusher.py -wfd ${THIS_WF_DIR} -td ${TASK_DIR}
 source deactivate
