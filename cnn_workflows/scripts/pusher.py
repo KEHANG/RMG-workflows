@@ -19,6 +19,8 @@ import time
 import datetime
 import argparse
 
+import connector
+
 def parse_arguments():
 	"""
 	Parse the command-line arguments. This uses the
@@ -73,9 +75,11 @@ def convert_datasets_file_to_json(datasets_file_path, training=True):
 			if line and not line.startswith('#'):
 				if training:
 					dataset, testing_ratio = [token.strip() for token in line.split(':')]
+					dataset = dataset.replace('.', '/')
 					datasets[dataset] = float(testing_ratio)
 				else:
 					dataset = line.strip()
+					dataset = dataset.replace('.', '/')
 					datasets[dataset] = 1.0
 
 	return datasets
@@ -142,9 +146,12 @@ def run():
 		json.dump(record, f_out, indent=4, sort_keys=True)
 
 	# connect to db and table
+	performance_db =  connector.connect_to_db('PredictorPerformanceDatabase')
+	task_name = task_meta['predictor_input']['prediction_task'].split('(')[0]
+	performance_table = getattr(performance_db, 'cnn_{0}_table'.format(task_name))
 
 	# insert the record
-
+	performance_table.insert_one(record)
 
 run()
 
