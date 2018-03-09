@@ -20,7 +20,7 @@ BATCH_SIZE=1
 CNN_MODEL='./'
 TEST_DATA_FILE='test_datasets.txt'
 
-export PYTHONPATH=$PYTHONPATH:$RMG_WS/
+export PYTHONPATH=$RMG_WS:$PYTHONPATH
 source activate ${cnn_wf_env}
 export KERAS_BACKEND=theano
 python $RMG_WS/scripts/train_cnn.py -i $INPUT -d ${DATA_FILE} -t ${TRAIN_MODE} -bs ${BATCH_SIZE}
