@@ -2,7 +2,7 @@
 #SBATCH -p debug
 #SBATCH -J cnn_wf
 #SBATCH -n 1
-#SBATCH --nodelist=node04
+#SBATCH --nodelist=node08
 
 rmgpy_branch="cnn_framework_concise2"
 rmgdb_branch="master"
