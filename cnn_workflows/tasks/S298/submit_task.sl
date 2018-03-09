@@ -8,7 +8,7 @@
 RMG_WS=${1}
 cnn_wf_env=${2}
 THIS_WF_DIR=${3}
-TASK_DIR==${4}
+TASK_DIR=${4}
 
 # for training
 INPUT='predictor_input.py'
