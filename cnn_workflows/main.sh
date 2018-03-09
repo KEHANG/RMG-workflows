@@ -6,7 +6,7 @@ export BASE_DIR="$( cd "$( dirname "$3" )/" && pwd )"
 export BASE_DATA_DIR=${BASE_DIR}/$(basename $3)
 
 # prepare dir for this job
-THIS_WF_DIR=$BASE_DATA_DIR/$(date +%Y-%m-%d:%H:%M:%S)
+THIS_WF_DIR=$BASE_DATA_DIR/$(date +%Y-%m-%d_%H-%M-%S)
 rm -rf $THIS_WF_DIR
 mkdir -p $THIS_WF_DIR
 echo "This workflow locates at: "$THIS_WF_DIR
