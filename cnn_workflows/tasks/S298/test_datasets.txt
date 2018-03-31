@@ -5,6 +5,7 @@ rmg.rmg_internal.kh_bicyclics_table_test
 rmg.rmg_internal.kh_tricyclics_table_test
 rmg.rmg_internal.zb_bicyclics_table_test
 rmg.rmg_internal.rmg_cho_cyclic_table_test
+rmg.rmg_internal.rmg_pah_table_test
 
 ## N cyclics data
 rmg.sdata134k.N_cyclics_table_test

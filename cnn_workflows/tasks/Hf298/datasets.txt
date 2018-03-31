@@ -8,6 +8,7 @@ rmg.rmg_internal.kh_bicyclics_table_train: 0.0
 rmg.rmg_internal.kh_tricyclics_table_train: 0.0
 rmg.rmg_internal.zb_bicyclics_table_train: 0.0
 rmg.rmg_internal.rmg_cho_cyclic_table_train: 0.0
+rmg.rmg_internal.rmg_pah_table_train: 0.0
 
 ## N cyclics data
 rmg.sdata134k.N_cyclics_table_train: 0.0
